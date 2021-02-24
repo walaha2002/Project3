@@ -27,7 +27,7 @@
  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
      integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
      crossorigin="anonymous"></script>
-    <title>Gradient Boosting</title>
+    <title>Gradient Boosting Classification</title>
 </head>
 <body>
     <!--Bootstrap code for navbar creation-->
@@ -50,22 +50,69 @@
                 </li>
                
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="lin_regress_pandas.html" href="random_forest.html"
+                    <a class="nav-link dropdown-toggle" href="lin_regress.html" href="random_forest.html"
                         href="extreme_trees.html" href="g_boosting.html" id="navbarDropdownMenuLink" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Models
                     </a>
                     
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="lin_regress_pandas.html">Linear Regression</a>
+                        <a class="dropdown-item" href="lin_regress.html">Linear Regression</a>
                         <a class="dropdown-item" href="random_forest.html">Random Forests</a>
-                        <a class="dropdown-item" href="extreme_trees.html">Extreme Trees</a>
-                        <a class="dropdown-item" href="g_boosting.html">Gradient Boosting</a>
+                        <a class="dropdown-item" href="extreme_trees.html">Extremely Randomized Trees</a>
+                        <a class="dropdown-item" href="g_boosting.html">Gradient Boosting Classification</a>
                     </div>
                 </li>
             </ul>
         </div>
     </nav>
     <br>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>
+                Gradient Boosting Classification
+            </h1>
+            <img src="Visualizations/gboost_topviz.png" alt="Example Decision Tree" style="width:1000px;height:auto;">
+            <br></br>
+            <h3>
+                The Model
+            </h3>
+            <p class="lead">
+                Gradient boosting classifiers are a group of ML algorithms that combine weak learning models together to create a strong predictive model, this typically means using decision trees.
+                A special component of the gradient boosting model comes from the fact that trees are added to the model over time, leaving existing trees fixed.
+            </p>
+            <!-- <p class="lead">
+                Each tree tries to predict pass or fail for each participant. The whole model's prediction for each
+                participant is the most popular prediction among all of the trees. The extremely random trees
+                model adds another layer of randomness in how each level of each tree makes its choice. 
+                Instead of using the optimum point to split for each decision, this model selects that point
+                randomly for each decision level in each tree.   
+
+            </p> -->
+            <h3>
+                Results
+            </h3>
+            <img src="Visualizations/gboost_results.PNG" alt="Feature Importance and " style="width:1000px;height:auto;">
+            <br></br>
+            <!-- <p class="lead">
+                Overall, this model produces results very similar to the random forest model with similar
+                accuracy. The two charts above show the feature importance and permutation importance of
+                all of the charactistics of participants including cumulative GPA, entrance test score, time
+                from completion of the program to taking the certification test, the amount of time taken to 
+                complete the program, number of failing grades while completing the program, the number of times 
+                a participant took the entrance exam, and previous educational attainment. The higher the value 
+                for a characteristic means that characteristic has more influence on the final prediction.
+
+            </p>
+            <p class="lead">
+                While there are some minor differences between these measures of importance, the most influential 
+                characteristics are easy to identify. Cumulative GPA in the program is the most important predictor 
+                of success on the certification test. Entrance test score and the amount of time taken to 
+                complete the program are of characteristics of secondary importance.
+
+            </p> -->
+            
+        </div>
+    </div>
 </body>
 </html>
