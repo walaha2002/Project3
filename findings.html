@@ -27,7 +27,7 @@
  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
      integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
      crossorigin="anonymous"></script>
-    <title>Analysis</title>
+    <title>Findings and Analysis</title>
 </head>
 <body>
     <!--Bootstrap code for navbar creation-->
@@ -67,5 +67,98 @@
         </div>
     </nav>
     <br>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>
+                Findings and Analysis
+            </h1>
+            <br></br>
+            <div class='tableauPlaceholder' id='viz1614203439187' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Mo&#47;ModelPerformanceMetrics&#47;PredictingPerformanceonCertificationTest&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ModelPerformanceMetrics&#47;PredictingPerformanceonCertificationTest' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Mo&#47;ModelPerformanceMetrics&#47;PredictingPerformanceonCertificationTest&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1614203439187');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.maxWidth='1715px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';vizElement.style.maxHeight='777px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.maxWidth='1715px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';vizElement.style.maxHeight='777px';} else { vizElement.style.width='100%';vizElement.style.height='827px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <br></br>
+            <h3>
+                Selecting the Best Model
+            </h3>
+            <p class="lead">
+                The models were evaluated based on their accuracy, precision, and efficiency.
+                As shown above, the multiple linear regression model had a much lower overall score
+                than the other models. Based on the low score, it was eliminated from the next evaluation
+                steps. The gradient boosting model performed well predicting students who would pass but did
+                not reliably identify the students who would fail.
+
+                With the multi-linear regression and gradient boosting models eliminated, the random forest and extremely 
+                randomized tree models were the final candidates. They have similar scores and predictive power. Ultimately,
+                 the extremely random trees model was selected since the modelling algorthim is more efficient and will return results faster.
+            </p>
+            <h3>
+                Findings
+            </h3>
+            <img src="Eisenba/Outputs/extreme_trees1.png" alt="Feature Importance and Permutation Importance" style="width:1000px;height:auto;">
+            <br></br>
+            <p class="lead">
+                The model identified cumulative GPA as the primary predicitve characteristic with entrance test 
+                score and the amount of time taken to complete the program as secondary characteristics. The two charts 
+                above show the feature importance and permutation importance of all of the charactistics considered. The higher 
+                the values that characteristic has more influence on the final prediction. While there are some minor 
+                differences between these measures of importance, the most influential characteristics are apparent. 
+
+            </p>
+            <p class="lead">
+                Surprisingly, previous education of students did not influence the predictions of the model in a 
+                significant way. This could be due to the very high number of students entering the program with
+                High School / some college educational attainment. This group is far more than half the students
+                included in the original data. The low influence of educational characteristcs could also suggest
+                that previous education is not a strong predictor of success on the certification exam. 
+
+            </p>
+            <h5><strong>Cumulative GPA and Likely Outcomes</strong></h5>
+            <table style="width:40%; margin-left: auto;
+            margin-right: auto;">
+                <tr>
+                  <th>Cumulative GPA</th>
+                  <th>Prediction</th>
+                </tr>
+                <tr>
+                  <td>3.3 and above</td>
+                  <td>Likely to Pass</td>
+
+                </tr>
+                <tr>
+                  <td>2.5 to 3.3</td>
+                  <td>Uncertain</td>
+
+                </tr>
+                <tr>
+                    <td>2.5 and below</td>
+                    <td>Likely to Fail</td>
+
+                  </tr>
+              </table>
+              <p class="lead">
+                 To better understand the influence of cumulative GPA, we compiled the predictions for an average student
+                 with a range of GPAS. The table above summarizes the predictions and probability of those 
+                 predictions. The predictions for the range between 2.5 and 3.0 had probabilities between 50% and 60% which
+                 means the model is very close random chance when predicting those outcomes. Outside of that range, the model
+                 becomes much more confident. 
+
+            </p>
+            <h3>
+                Final Conclusions
+            </h3>
+            <p class="lead">
+               This modelling effort revealed the importance of cumulative GPA in predicting students' performance 
+               on the certification exam. Students with a cumulative GPA at or below 2.5 are especially at risk of 
+               failing on their first attempt on the exam. Targetting interventions for this group such as academic 
+               counselling and student support resources may help improve GPAs which should improve exam outcomes.
+            </p>
+            <p class="lead">                
+                This work could be expanded in a couple ways. Examining trends in GPA as students progress through 
+                the program may uncover points where interventions could improve outcomes. Secondly, data on clinicals
+                was not included in this analysis. Since they provide a unique experience to students, differences in 
+                clinicals should be explored for possible influence on certification outcomes.
+ 
+             </p>
+
+        </div>
+    </div>
 </body>
 </html>
